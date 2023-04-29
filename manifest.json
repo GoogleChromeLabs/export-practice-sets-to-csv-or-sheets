@@ -1,0 +1,69 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_appName__",
+  "version": "0.0.4",
+  "author": "Clay Smith",
+  "short_name": "__MSG_appName__",
+  "default_locale": "en",
+  "description": "__MSG_appDesc__",
+  "icons": {
+    "16": "images/icons/16.png",
+    "19": "images/icons/19.png",
+    "32": "images/icons/32.png",
+    "36": "images/icons/36.png",
+    "38": "images/icons/38.png",
+    "64": "images/icons/64.png",
+    "128": "images/icons/128.png"
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvq+LJulWfqpt9jnAadepUwn8pPZJxwEAYTjBBY3x76woz+Oef1PrteHy8sv4jjSNRZ2hAhurgot4xm9219FOFGwkMU4UL5SP+xVuOPWxd1h82b3oYQBHO04IbVVnqhmvMpTvWP2M0xLi2yTrkK+3n+m3e0288N2YN8mAr7RHJecrZqGb7OvfiHxN44PjixpP2/Bb2k91x5Q2cTjINDTzGm+oTSqiT2py1E+kO7hDnwP6fF1F/700op+Sm7f64KxPz1dxbCtV3haPz4naBJ7/FyvnmaFemd0uyCm+suTICGmoSsrfuW262EyV1SNOINuxS+2zGBz+1/ULQjMBr5X1qwIDAQAB",
+  "permissions": [
+    "identity",
+    "identity.email",
+    "storage",
+    "scripting"
+  ],
+  "oauth2": {
+    "client_id": "737899175025-s3b1ssugaavo8lufhnp4e0f4fccpsefb.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/drive",
+      "https://www.googleapis.com/auth/drive.file"
+    ]
+  },
+  "action": {
+    "default_icon": {
+      "19": "images/icons/19.png",
+      "38": "images/icons/38.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": [
+    "https://classroom.google.com/practice-sets/*"
+  ],
+  "content_scripts": [
+    {
+      "run_at": "document_start",
+      "matches": [
+        "https://classroom.google.com/practice-sets/*"
+      ],
+      "js": [
+        "contentscript.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "resources/*"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "storage": {
+    "managed_schema": "schema.json"
+  }
+}

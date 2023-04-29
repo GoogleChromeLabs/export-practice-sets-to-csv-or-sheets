@@ -1,0 +1,42 @@
+{
+  "title": "Configuration",
+  "description": "Configuration for District Sheet",
+  "type": "object",
+  "properties": {
+    "schoolsheetid": {
+      "type": "string"
+    },
+    "schoolsheetname": {
+      "type": "string"
+    },
+    "allowcsvexport": {
+      "type": "boolean"
+    },
+    "allowsheetexport": {
+      "type": "boolean"
+    },
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "appName": {
+    "message": "Practice Sets Export",
+    "description": "Title in the store"
+  },
+  "appDesc": {
+    "message": "Practice Sets Export",
+    "description": "Description as displayed in the store."
+  },
+  "exportcsv": {
+    "message": "Export to CSV",
+    "description": "Button label to export to CSV"
+  },
+  "exportsheet": {
+    "message": "Export to Sheet",
+    "description": "Button label to export to CSV"
+  },
+  "exportschool": {
+    "message": "Export to School",
+    "description": "Button label to export to CSV"
+  },
+  "sheetTitle": {
+    "message": "Practice Sets",
+    "description": "Sheet Export Name"
+  },
+  "defaultSheetName": {
+    "message": "Sheet1",
+    "description": "Default name of the created sheet in the spreadsheet"
+  },
+  "user": {
+    "message": "User",
+    "description": "User label"
+  },
+  "id": {
+    "message": "Id",
+    "description": "Id label"
+  },
+  "link": {
+    "message": "Link",
+    "description": "Link label"
+  },
+  "text": {
+    "message": "Text",
+    "description": "Text label"
+  },
+  "export": {
+    "message": "Export",
+    "description": "Export label"
+  },
+  "exportpreacticesets": {
+    "message": "Export Practice Sets",
+    "description": "School Export Page Header"
+  },
+  "exportpreacticesetsdirections": {
+    "message": "Export your selected Practice Sets links to your school repository.",
+    "description": "School Export Page Header"
+  },
+  "sent": {
+    "message": "SENT",
+    "description": "Sent message response"
+  },
+  "title": {
+    "message": "Export to School",
+    "description": "Page Title"
+  }
+}
