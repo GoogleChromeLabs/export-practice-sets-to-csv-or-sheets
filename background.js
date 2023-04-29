@@ -12,8 +12,9 @@
 * See the License for the specific language governing permissions and
 * limitations under the License. */
 
-console.log('loaded');
-
+/**
+ * Event listener for message passing
+ */
 chrome.runtime.onMessage.addListener(async function (request, sender, sendResponse) {
   console.log(request);
   if (request.type === 'exportsheet') {
@@ -24,7 +25,6 @@ chrome.runtime.onMessage.addListener(async function (request, sender, sendRespon
     openSchoolTab(request);
   }
   if (request.type === 'exportschoolselection') {
-    console.log('recieved', request)
     const res = await sendToSchoolSheet(request);
     console.log('completed response', res);
     sendMessage({ type: 'sent' });
@@ -92,10 +92,8 @@ async function sendToSchoolSheet(request) {
   const ss = await getBatch({ id: id, token: auth, path: `/values/${range}` });
 
   const header = ss.values.flat().map(el => String(el).toLowerCase());
-  console.log('header', header)
   const alignArray = [];
   let head = request.data[0].map(el => String(el).toLowerCase());
-  console.log('head', head)
   request.data.forEach((row, i) => {
     if (i === 0) return;
     const newRow = [];
@@ -205,7 +203,6 @@ async function fetchRetry(url, options) {
         return response;
       }
     }
-    console.log('response', await res.json());
     const err = await res.json();
     sendMessage({ response: err });
     if (backoff >= 256) {
@@ -223,6 +220,11 @@ async function fetchRetry(url, options) {
   }
 }
 
+/**
+ * Time out process
+ * @param {number} timeout
+ * @returns
+ */
 function wait(timeout) {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -231,6 +233,10 @@ function wait(timeout) {
   });
 }
 
+/**
+ * Send a message to the active tab
+ * @param {object} msg Message
+ */
 async function sendMessage(msg = {}) {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   const response = await chrome.tabs.sendMessage(tab.id, msg);
@@ -250,6 +256,10 @@ function getStorage(item) {
   });
 }
 
+/**
+ * Open the school management tab
+ * @param {object} request
+ */
 async function openSchoolTab(request) {
   const url = chrome.runtime.getURL("resources/submit.html");
   const newtab = await chrome.tabs.create({ url: url });

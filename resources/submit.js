@@ -12,7 +12,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License. */
 
-console.log('submit loaded');
+
 let tablehead = []
 /**
  * Localize the page
@@ -35,6 +35,10 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   sendResponse(true);
 });
 
+/**
+ * Create the data from the content sctipr into a table inserted to the new page
+ * @param {object} request Data request
+ */
 async function createTable(request) {
   const items = await getStorage('fields');
   const tablediv = document.querySelector('#table');
@@ -60,6 +64,11 @@ async function createTable(request) {
 
 }
 
+/**
+ * Item to convert to an html Input
+ * @param {object} item
+ * @returns
+ */
 function createFieldType(item) {
   switch (item.type) {
     case 'dropdown':
@@ -119,6 +128,9 @@ function getTableData(cellType = 'td') {
   return tableData;
 }
 
+/**
+ * Export event listener
+ */
 document.querySelector('#exportdata').addEventListener('click', async (e) => {
   document.querySelector('#sent').textContent=""
   const table = getTableData('.data');
@@ -128,6 +140,12 @@ document.querySelector('#exportdata').addEventListener('click', async (e) => {
   await chrome.runtime.sendMessage({ type: 'exportschoolselection', data: data });
 });
 
+/**
+ * Remove a specific column from the data
+ * @param {string[]} array 2dArray of data
+ * @param {number} i Index to remove
+ * @returns
+ */
 function removeCol(array, i) {
   return array.map(function (arr) {
     return arr.filter(function (el, index) { return index !== i; });

@@ -39,9 +39,10 @@ document.querySelectorAll('.export').forEach(item => {
   });
 });
 
-
+/**
+ * Set which buttons should be visible
+ */
 chrome.storage.managed.get().then(res => {
-  console.log('managed', res)
   if (res['schoolsheetid'] && res['schoolsheetname']) {
     document.querySelector('#exportschool').style.display = ''
   }

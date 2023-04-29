@@ -91,7 +91,7 @@ async function createOutput(msg) {
 }
 
 /**
- *
+ * Send the data to the backend
  * @param {object} msg
  */
 async function sendToBackend(msg = {}) {
