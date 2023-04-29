@@ -15,7 +15,7 @@
     "64": "images/icons/64.png",
     "128": "images/icons/128.png"
   },
-  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvq+LJulWfqpt9jnAadepUwn8pPZJxwEAYTjBBY3x76woz+Oef1PrteHy8sv4jjSNRZ2hAhurgot4xm9219FOFGwkMU4UL5SP+xVuOPWxd1h82b3oYQBHO04IbVVnqhmvMpTvWP2M0xLi2yTrkK+3n+m3e0288N2YN8mAr7RHJecrZqGb7OvfiHxN44PjixpP2/Bb2k91x5Q2cTjINDTzGm+oTSqiT2py1E+kO7hDnwP6fF1F/700op+Sm7f64KxPz1dxbCtV3haPz4naBJ7/FyvnmaFemd0uyCm+suTICGmoSsrfuW262EyV1SNOINuxS+2zGBz+1/ULQjMBr5X1qwIDAQAB",
+  "key": "<Extension public Key to maintain the extension id>",
   "permissions": [
     "identity",
     "identity.email",
@@ -23,7 +23,7 @@
     "scripting"
   ],
   "oauth2": {
-    "client_id": "737899175025-s3b1ssugaavo8lufhnp4e0f4fccpsefb.apps.googleusercontent.com",
+    "client_id": "<GCP Client ID>",
     "scopes": [
       "https://www.googleapis.com/auth/drive",
       "https://www.googleapis.com/auth/drive.file"
